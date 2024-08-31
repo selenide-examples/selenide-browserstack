@@ -8,8 +8,8 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import com.codeborne.selenide.Configuration;
 
 public class TestSetup implements BeforeAllCallback {
-  private final String username = System.getProperty("browserstack.username", "enter-your-browserstack-username");
-  private final String accessKey = System.getProperty("browserstack.accessKey", "enter-your-browserstack-accessKey");
+  private final String username = System.getenv("BROWSERSTACK_USERNAME");
+  private final String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
 
   /**
    * See all <a href="https://www.browserstack.com/automate/capabilities">BrowserStack settings</a>

@@ -2,10 +2,10 @@ apply plugin: 'java'
 defaultTasks 'clean', 'test'
 
 ext {
-  selenideVersion = '7.0.4'
-  junitVersion = '5.10.1'
-  assertjVersion = '3.24.2'
-  slf4jVersion = '2.0.9'
+  selenideVersion = '7.4.2'
+  junitVersion = '5.11.0'
+  assertjVersion = '3.26.3'
+  slf4jVersion = '2.0.16'
 }
 
 repositories{
@@ -38,13 +38,11 @@ configurations.configureEach {
   resolutionStrategy.cacheChangingModulesFor 30, 'seconds'
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
   options.encoding = 'UTF-8'
   options.debug = true
   sourceCompatibility = 17
 }
-
-sourceCompatibility = '17'
 
 java {
   toolchain {
@@ -56,8 +54,6 @@ java {
 tasks.withType(Test).configureEach {
   useJUnitPlatform()
   systemProperties 'file.encoding': 'UTF-8'
-  systemProperties 'browserstack.username': System.getProperty('browserstack.username', "enter-your-browserstack-username")
-  systemProperties 'browserstack.accessKey': System.getProperty('browserstack.accessKey', "enter-your-browserstack-access-key")
   testLogging.showStandardStreams = true
   outputs.upToDateWhen {false}
 }
