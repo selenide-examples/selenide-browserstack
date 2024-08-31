@@ -1,12 +1,10 @@
 package org.selenide.bs;
 
-import static com.codeborne.selenide.ClipboardConditions.content;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.clipboard;
-import static com.codeborne.selenide.Selenide.open;
-
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.ClipboardConditions.content;
+import static com.codeborne.selenide.Selenide.*;
 
 public class ClipboardTest {
   @Test

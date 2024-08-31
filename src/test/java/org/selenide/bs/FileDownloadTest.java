@@ -1,21 +1,18 @@
 package org.selenide.bs;
 
+import com.codeborne.selenide.FileDownloadMode;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
+
 import static com.codeborne.selenide.DownloadOptions.using;
-import static com.codeborne.selenide.FileDownloadMode.FOLDER;
-import static com.codeborne.selenide.FileDownloadMode.HTTPGET;
-import static com.codeborne.selenide.FileDownloadMode.PROXY;
+import static com.codeborne.selenide.FileDownloadMode.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.files.FileFilters.withExtension;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.io.File;
-
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-
-import com.codeborne.selenide.FileDownloadMode;
 
 public class FileDownloadTest {
   @Test
