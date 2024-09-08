@@ -22,6 +22,12 @@ public class FileDownloadTest {
 
   @Test
   @Disabled
+  void downloadFile_using_cdp() {
+    checkDownload(CDP);
+  }
+
+  @Test
+  @Disabled
   void downloadFile_using_folder() {
     checkDownload(FOLDER);
   }
