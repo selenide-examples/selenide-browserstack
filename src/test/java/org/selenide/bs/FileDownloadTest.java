@@ -11,7 +11,6 @@ import static com.codeborne.selenide.FileDownloadMode.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.files.FileFilters.withExtension;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class FileDownloadTest {
@@ -40,7 +39,7 @@ public class FileDownloadTest {
 
   static void checkDownload(FileDownloadMode method) {
     open("https://selenide.org/test-page/download.html");
-    File file = $(byText("hello-world.txt")).download(using(method).withFilter(withExtension("txt")));
+    File file = $(byText("hello-world.txt")).download(using(method).withExtension("txt"));
     assertThat(file).hasName("hello-world.txt");
     assertThat(file).content().isEqualTo("Hello, world!");
   }
