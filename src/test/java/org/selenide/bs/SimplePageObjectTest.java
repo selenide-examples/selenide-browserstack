@@ -4,8 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.CollectionCondition.sizeLessThan;
+import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -18,6 +17,9 @@ public class SimplePageObjectTest {
   @Test
   void showsAllKnownSelenideUsers() {
     SelenideUsersPage page = new SelenideUsersPage();
+    page.users().shouldHave(size(1));
+
+    page.filterByTag("all");
     page.users().shouldHave(sizeGreaterThan(40));
   }
 

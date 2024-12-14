@@ -2,8 +2,7 @@ package org.selenide.bs;
 
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.CollectionCondition.sizeLessThan;
+import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -15,6 +14,9 @@ public class SimpleTest {
     $(".main-menu-pages").find(byText("Users")).click();
 
     $$("#user-tags .tag").shouldHave(sizeGreaterThan(8));
+    $$("#selenide-users .user:not(.hidden)").shouldHave(size(1));
+
+    $("#user-tags").find(byTagAndText("a", "all")).click();
     $$("#selenide-users .user:not(.hidden)").shouldHave(sizeGreaterThan(80));
 
     $("#user-tags").find(byTagAndText("a", "ukraine")).click();
