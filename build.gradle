@@ -60,6 +60,8 @@ tasks.withType(Test).configureEach {
   systemProperties 'file.encoding': 'UTF-8'
   testLogging.showStandardStreams = true
   outputs.upToDateWhen {false}
+  testClassesDirs = sourceSets.test.output.classesDirs
+  classpath = sourceSets.test.runtimeClasspath
 }
 
 tasks.register("chrome", Test) {
